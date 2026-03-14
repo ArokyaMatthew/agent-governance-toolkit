@@ -9,7 +9,7 @@
 [![CI](https://github.com/microsoft/agent-governance-toolkit/actions/workflows/ci.yml/badge.svg)](https://github.com/microsoft/agent-governance-toolkit/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://python.org)
-[![OWASP Agentic Top 10](https://img.shields.io/badge/OWASP_Agentic_Top_10-9%2F10_+_1_Partial-blue)](docs/OWASP-COMPLIANCE.md)
+[![OWASP Agentic Top 10](https://img.shields.io/badge/OWASP_Agentic_Top_10-10%2F10-blue)](docs/OWASP-COMPLIANCE.md)
 [![OpenSSF Best Practices](https://www.bestpractices.dev/projects/12085/badge)](https://www.bestpractices.dev/projects/12085)
 [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/microsoft/agent-governance-toolkit/badge)](https://scorecard.dev/viewer/?uri=github.com/microsoft/agent-governance-toolkit)
 
@@ -33,7 +33,7 @@ AI agent frameworks (LangChain, AutoGen, CrewAI, Google ADK, OpenAI Agents SDK) 
 - **Execution sandboxing** with privilege rings and termination controls
 - **Reliability engineering** with SLOs, error budgets, and chaos testing
 
-Addresses **9 of 10 [OWASP Agentic Top 10](https://owasp.org/www-project-agentic-ai-top-10/)** risks, with the 10th (behavioral anomaly detection) in active development.
+Addresses **all 10 [OWASP Agentic Top 10](https://owasp.org/www-project-agentic-ai-top-10/)** risks with production implementations.
 
 ## Architecture
 
@@ -139,7 +139,7 @@ Works with **12+ agent frameworks** including:
 | Unsafe Inter-Agent Communication | ASI-07 | ✅ AgentMesh encrypted channels + trust gates |
 | Cascading Failures | ASI-08 | ✅ Circuit breakers + SLO enforcement |
 | Human-Agent Trust Deficit | ASI-09 | ✅ Full audit trails + flight recorder |
-| Rogue Agents | ASI-10 | 🔄 Termination + quarantine implemented; **behavioral anomaly detection in active development** |
+| Rogue Agents | ASI-10 | ✅ Kill switch + ring isolation + behavioral anomaly detection |
 
 ## Documentation
 
@@ -191,7 +191,6 @@ Policy enforcement benchmarks are measured on a **30-scenario test suite** cover
 
 ### Known Limitations & Roadmap
 
-- **ASI-10 Behavioral Detection**: Termination and quarantine are implemented; anomaly detection (tool-call frequency analysis, action entropy scoring) is in active development
 - **Audit Trail Integrity**: Current hash-chain is in-process; external append-only log integration is planned
 - **Framework Integration Depth**: Current adapters wrap agent execution at the function level; deeper hooks into framework-native tool dispatch and sub-agent spawning are planned
 - **Observability**: OpenTelemetry integration for policy decision tracing is planned
