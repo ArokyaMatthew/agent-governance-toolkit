@@ -42,7 +42,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Test suite** — Updated 69 test assertions across 7 test files from
   `pytest.raises(NotImplementedError)` to functional behavior validation.
 
-
+
+
+### Security
+- Copilot extension CORS policy changed from wildcard (`Access-Control-Allow-Origin: *`) to explicit origin allowlist via `ALLOWED_ORIGINS`, with secure GitHub defaults.
+
+### Breaking Changes
+- Clients calling protected Copilot extension API routes without an `Origin` header are now rejected (`403`).
+- Clients previously relying on unrestricted cross-origin access must configure `ALLOWED_ORIGINS` explicitly.
+
+
 ## [3.0.0] - 2026-03-26
 
 ### Changed
